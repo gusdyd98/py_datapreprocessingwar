@@ -50,3 +50,20 @@ import pandas as pd
 
 pd.set_option('display.max_columns', None)
 
+print(reserve_tb.sample(frac=0.5))      #reserve_tb에서 50% 랜덤 추출
+print(reserve_tb.sample(n=100))         #100건 추출
+
+
+print("############################################")
+print("##  71.page. 고객ID를 샘플링한 후 대상 데이터를 샘플링하기          ")
+print("############################################")
+import pandas as pd
+
+pd.set_option('display.max_columns', None)
+
+target=pd.Series(reserve_tb['customer_id'].unique()).sample(frac=0.5)
+
+print(reserve_tb[reserve_tb['customer_id'].isin(target)])
+
+
+
